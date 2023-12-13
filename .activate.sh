@@ -91,9 +91,10 @@ echo "GHDL $GHDL_VERSION"
 #
 alias clean="git clean -xdie $VENV_NAME"
 alias vunit='python3 $(git rev-parse --show-toplevel)/run.py -v '
-alias gtkwave_vhdl='python3 $(git rev-parse --show-toplevel)/run.py --gtkwave-fmt vcd --gui'
 alias build='vivado -notrace -mode batch -source $(git rev-parse --show-toplevel)/scripts/build.tcl'
-alias gtkwave_SystemVerilog='sh .gtkwave_SystemVerilog.sh'
+alias gtkwave_vhdl='python3 $(git rev-parse --show-toplevel)/run.py --gtkwave-fmt vcd --gui'
+alias gtkwave_sv='sh .gtkwave_sv.sh'
+alias gtkwave_verilog='sh .gtkwave_verilog.sh'
 
 #alias build_axi_lite='vivado -notrace -mode batch -source $(git rev-parse --show-toplevel)/scripts/build_1_array/build_1_array.tcl'
 #alias build_simulated_array='vivado -notrace -mode batch -source $(git rev-parse --show-toplevel)/scripts/build_simulated_array/build_only_simulated_array.tcl'
