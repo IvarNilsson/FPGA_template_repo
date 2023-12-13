@@ -1,0 +1,37 @@
+{
+	"C_Cpp.default.compilerPath": "/usr/bin/g++",
+	"C_Cpp.default.includePath": [
+		"/usr/share/verilator/include/**",
+		"${workspaceFolder}/**"
+	],
+	"terminal.integrated.env.linux": {
+		//"GTK_PATH": "/usr/lib/x86_64-linux-gnu/gtk-2.0/modules"
+		"GTK_PATH": null,
+		"GTK_IM_MODULE_FILE": null
+	},
+	// VHDL formatter
+	"vhdl.formatter.align.all": true,
+	"vhdl.formatter.align.function": true,
+	"vhdl.formatter.align.generic": true,
+	"vhdl.formatter.align.mode": "Local",
+	"vhdl.formatter.align.port": true,
+	"vhdl.formatter.align.procedure": true,
+	"vhdl.formatter.case.keyword": "LowerCase",
+	"vhdl.formatter.case.typename": "LowerCase",
+	// General use tabs
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false, //overwrite wrong formatting
+	// Set tab size
+	"[*]": {
+		"editor.tabSize": 4
+	},
+	"[vhdl]": {
+		"editor.tabSize": 3
+	},
+	"[systemverilog]": {
+		"editor.tabSize": 3
+	},
+	// Verilog
+	"systemverilogFormatter.veribleBuild": "Ubuntu-20.04-focal-x86_64"
+	//"systemverilogFormatter.commandLineArguments": "--column_limit 80"
+}
