@@ -94,6 +94,7 @@ alias vunit='python3 $(git rev-parse --show-toplevel)/run.py -v '
 alias build='vivado -notrace -mode batch -source $(git rev-parse --show-toplevel)/scripts/build.tcl'
 alias gtkwave_vhdl='python3 $(git rev-parse --show-toplevel)/run.py --gtkwave-fmt vcd --gui'
 alias gtkwave_sv='sh .gtkwave_sv.sh'
+alias gtkwave_v='sh .gtkwave_v.sh'
 alias gtkwave_verilog='sh .gtkwave_verilog.sh'
 
 #alias build_axi_lite='vivado -notrace -mode batch -source $(git rev-parse --show-toplevel)/scripts/build_1_array/build_1_array.tcl'
