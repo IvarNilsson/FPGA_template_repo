@@ -1,23 +1,31 @@
 #python ../run.py --gtkwave-fmt vcd --gui lib.tb_collector.gtkw
 
-set nfacts [ gtkwave::getNumFacs ]
+set nfacts [gtkwave::getNumFacs]
 puts "$nfacts"
 
-# TOP.simple_SystemVerilog.sys_clk -
+# Function to add a signal and handle errors if it doesn't exist
+proc addSignal {signal} {
+    set result [catch {gtkwave::addSignalsFromList "$signal"} error_message]
+    if {$result != 0} {
+        puts "Error adding signal $signal: $error_message"
+    }
+}
 
-for {set i 0} {$i < $nfacts} {incr i} {
-	set name [gtkwave::getFacName $i]
-	puts "$name"
+# List of signals to add
+set signals {
+    TOP.simple_verilog.sys_clk -
+    TOP.simple_verilog.rst -
+    TOP.simple_verilog.counter_done -
 
-	switch -glob -- $name {
-		TOP.simple_verilog.sys_clk -
-		TOP.simple_verilog.rst -
-		TOP.simple_verilog.counter_done -
+    tb_simple_verilog.uut.sys_clk -
+    tb_simple_verilog.uut.rst -
+    tb_simple_verilog.uut.counter_done -
 
-		tb_tb.a* {
-			gtkwave::addSignalsFromList "$name"
-		}
-	}
+}
+
+# Iterate through the list of signals and add them
+foreach signal $signals {
+    addSignal $signal
 }
 
 # zoom full
