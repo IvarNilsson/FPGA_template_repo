@@ -8,8 +8,13 @@ UNDERLINE_tb_1=$UNDERLINE"tb-$1"$RESET_UNDERLINE
 
 echo "$BOLD Running $UNDERLINE_1 and $UNDERLINE_tb_1 $RESET"
 
-#verilator --cc src/$1.v
-verilator -Wall --trace -cc src/$1.v --exe test/tb_$1.cpp
+#verilator --cc src/$1.sv
+#verilator -Wall --trace -cc src/$1.sv --cc test/tb_$1.cpp
+#verilator --trace --cc src/$1.sv
+#verilator --trace --cc test/tb_$1.sv 
+
+verilator --trace --cc src/$1.sv --cc test/tb_$1.sv --top-module tb_$1
+
 make -C obj_dir -f V$1.mk V$1
 ./obj_dir/V$1
 gtkwave waveform.vcd --script=test/wave/tb_$1.tcl

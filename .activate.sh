@@ -79,13 +79,6 @@ GHDL_VERSION="$(ghdl --version | head -n1 | cut -d" " -f2)"
 
 echo "GHDL $GHDL_VERSION"
 
-# Open sorce files and tbs to load them all in.
-#code test/*.vhd
-#code src/lab1/*.vhd
-#code src/lab2/*.vhd
-#code src/lab3/*.vhd
-#code src/lib_vhd/*.vhd
-
 #
 # Useful aliases
 #
@@ -96,6 +89,7 @@ alias gtkwave_vhdl='python3 $(git rev-parse --show-toplevel)/run.py --gtkwave-fm
 alias gtkwave_sv='sh .gtkwave_sv.sh'
 alias gtkwave_v='sh .gtkwave_v.sh'
 alias gtkwave_verilog='sh .gtkwave_verilog.sh'
+alias gtkwave_sv_test='sh .gtkwave_sv_test.sh'
 
 #alias build_axi_lite='vivado -notrace -mode batch -source $(git rev-parse --show-toplevel)/scripts/build_1_array/build_1_array.tcl'
 #alias build_simulated_array='vivado -notrace -mode batch -source $(git rev-parse --show-toplevel)/scripts/build_simulated_array/build_only_simulated_array.tcl'
@@ -103,24 +97,18 @@ alias gtkwave_verilog='sh .gtkwave_verilog.sh'
 #alias open_sdk_project='vivado -notrace -mode batch -source $(git rev-parse --show-toplevel)/scripts/other/open_sdk_project.tcl'
 
 echo -e '
-Welcome to VSLI-Design!
-   To run a test bench for a HDL-file write: vunit "*HDL_file_name.auto"
-   To run a test in a waveform viewer write: gtkwave "*HDL_file_name.wave"
+Welcome to FPGA_template_reop!
+   To run a test bench for a VHDL-file write: vunit "*VHDL_file_name.auto"
+   To run a test in a waveform viewer write: gtkwave "*VHDL_file_name.wave"
    To create and launch the Vivado project write: build
-\033[4mCommands:\033[0m
-\033[1m  gtkwave\033[0m    Run PL auto-tests (example for tb_super_test: gtkwave "*tb_super_test.wave*")
-\033[1m    vunit\033[0m    Run PL wave-tests (example for tb_super_test: vunit "*tb_super_test.auto*")
-\033[1m    build\033[0m    Build PL ("build -help" for usage)
-\033[1m    clean\033[0m    Clean project (interactive) (excluding venv)
-'
 
-#sleep 5
-# echo "go!"
-# close open tabs that are now loded in.
-#for i in {1..23}
-#do
-#   xdotool key ctrl+w
-#done
+'
+#\033[4mCommands:\033[0m
+#\033[1m  gtkwave\033[0m    Run PL auto-tests (example for tb_super_test: gtkwave "*tb_super_test.wave*")
+#\033[1m    vunit\033[0m    Run PL wave-tests (example for tb_super_test: vunit "*tb_super_test.auto*")
+#\033[1m    build\033[0m    Build PL ("build -help" for usage)
+#\033[1m    clean\033[0m    Clean project (interactive) (excluding venv)
+#'
 
 echo "READY!"
 
