@@ -1,28 +1,11 @@
-# ------------------------------------------------------------------------------------
-# Argument parser (cli options)
-# ------------------------------------------------------------------------------------
-package require cmdline
-
-# TODO: update usage to be better
-
-#TODO: make the auto install of boards work :)
-# Make sure boards are installed
-#xhub::install [xhub::get_xitems $board ]
-#xhub::update  [xhub::get_xitems $board ]
-
-# Setup Board
-set board digilentinc.com:nexys4:part0:1.1
-
-# ------------------------------------------------------------------------------------
 # Create project
-# ------------------------------------------------------------------------------------
 set ROOT [file normalize [file join [file dirname [info script]] .. ]]
 set outputdir [file join "$ROOT" vivado_files]
 file mkdir $outputdir
 create_project projekt $outputdir -force
 
 # Set Properties
-set_property board_part $board     [current_project]
+set_property board_part digilentinc.com:nexys4:part0:1.1     [current_project]
 set_property target_language VHDL  [current_project]
 
 # Set the file that will be top module
@@ -52,7 +35,6 @@ import_files -force
 
 # set VHDL 2008 as default
 set_property file_type {VHDL 2008} [get_files  *.vhd]
-
 
 source [ file normalize [ file join $ROOT scripts clk_wiz.tcl ] ]
 
