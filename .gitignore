@@ -1,4 +1,5 @@
-venv
+.venv
 vunit_out
 obj_dir
 waveform.vcd
+.vscode

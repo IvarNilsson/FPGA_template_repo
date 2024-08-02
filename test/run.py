@@ -1,6 +1,6 @@
 from pathlib import Path
 import sys
-sys.path.append("/usr/local/VUnit/vunit/")
+sys.path.append("/home/$USER/Utilities/vunit")
 #import vunit
 from vunit import VUnit
 
